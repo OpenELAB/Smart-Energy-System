@@ -1,6 +1,4 @@
-# Smart-Energy-System
-
-Welcome to the **Smart-Energy-System** project 🌞🔋💡. This project focuses on creating an intelligent battery and load management system using solar panels, batteries, and Arduino. It converts solar energy into electrical power, charges batteries, and provides power to Arduino and peripherals. The system also includes real-time monitoring of battery and load parameters such as voltage, current, and power using the INA226 module.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;__Hi__ 👋,Welcome to the **Smart-Energy-System** project 🌞🔋💡. This project focuses on creating an intelligent battery and load management system using solar panels, batteries, and Arduino. It converts solar energy into electrical power, charges batteries, and provides power to Arduino and peripherals. The system also includes real-time monitoring of battery and load parameters such as voltage, current, and power using the INA226 module.
 
 ---
 
