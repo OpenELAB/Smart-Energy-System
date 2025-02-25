@@ -27,7 +27,6 @@ The **Smart-Energy-System** project integrates solar panels, battery management,
 - **Real-time Battery Monitoring**: Monitors the battery's voltage, current, and power through INA226, providing instant feedback.
 - **Load Management**: Monitors two connected loads (motor and solar lamp), adjusting power supply based on real-time data.
 - **Solar Energy Utilization**: Uses solar panels to charge the battery, making the system energy-efficient and eco-friendly.
-- **Remote Control**: Potential integration with a smart home platform for remote monitoring and control through a mobile app.
 
 ---
 
@@ -40,7 +39,7 @@ The **Smart-Energy-System** project integrates solar panels, battery management,
 - **5V Battery**: Powers Arduino and load devices.
 - **Arduino Uno**: The main controller, processing data and controlling the loads.
 - **INA226**: Voltage, current, and power monitoring module for the battery and loads.
-- **TFT Display**: Displays voltage, current, and power data for both the battery and loads.
+- **Display**: Displays voltage, current, and power data for both the battery and loads.
 - **Splitter**: Used for connecting multiple electrical devices.
 - **Loads**: Includes a motor (R300C) and a solar lamp.
 - **LED**: White 3V7, additional lighting for the system.
@@ -50,7 +49,7 @@ The **Smart-Energy-System** project integrates solar panels, battery management,
 - **Solar Panel** is connected to the **Step-down Module** to charge the battery.
 - **Battery** is connected to the **Arduino Uno** and provides power.
 - **INA226** is connected between the battery and the loads to monitor their performance.
-- **TFT Display** is connected to Arduino via I2C to show real-time data.
+- **Display** is connected to Arduino via serial to show real-time data.
 
 ---
 
@@ -63,7 +62,7 @@ The **Smart-Energy-System** project integrates solar panels, battery management,
 | **5V Battery**             | Battery for powering Arduino and devices       | 1        |
 | **Arduino Uno**            | Main controller                                | 1        |
 | **INA226 Module**          | Monitors voltage, current, and power           | 1        |
-| **TFT Display**            | 2.4-inch display for data display              | 1        |
+| **Display**                | 4.3-inch display for data display              | 1        |
 | **Splitter**               | For connecting multiple devices                | 1        |
 | **R300C Motor**            | Micro motor as load 1                          | 1        |
 | **Solar Lamp**             | Solar-powered lamp as load 2                  | 1        |
@@ -71,14 +70,14 @@ The **Smart-Energy-System** project integrates solar panels, battery management,
 
 ---
 
+
 ## 🛠️ Software Environment Setup
 
-1. **Development Environment**: Use **VSCode** with the **PlatformIO** plugin for code development.
+1. **Development Environment**: Use **Arduino IDE** for code development.
 2. **Library Installation**:
    - **Adafruit INA226**: Library to interface with the INA226 for current, voltage, and power monitoring.
-   - **TFT_eSPI**: For controlling the TFT display.
-   - **ArduinoJson**: Used to parse and handle JSON data.
-3. **Import Project**: Open the project folder in VSCode and import the Arduino project to start working.
+   - **Wire**: For I2C communication with the INA226 and other peripherals.
+3. **Import Project**: Open the project folder in the Arduino IDE and load the sketch to begin working.
 
 ---
 
@@ -91,31 +90,16 @@ The **Smart-Energy-System** project integrates solar panels, battery management,
 
 ### Configure and Debug:
 
-1. Upload the code to Arduino using **PlatformIO** or the Arduino IDE.
-2. Check the data displayed on the TFT display for voltage, current, and power of the battery and loads.
+1. Upload the code to Arduino using the **Arduino IDE**.
+2. Check the data displayed on the screen (e.g., an LCD screen or similar display) for voltage, current, and power of the battery and loads.
 3. You can adjust settings like monitoring intervals or load configurations through the Arduino code.
 
 ### Monitor and Adjust:
 
-1. Use the TFT display to monitor the system’s performance in real-time.
-2. Optionally, integrate the system with a smart home app to view data and control settings remotely.
+1. Use the screen to monitor the system’s performance in real-time.
+2. Since there is no cloud platform integration in this project, everything is displayed and controlled locally on the screen.
 
 ---
-
-## 🌐 IoT Platform and Data Upload
-
-1. **Platform Selection**: We use **ThingSpeak** or **Blynk** as IoT platforms to upload data and manage the system remotely.
-2. **Device Connection and Binding**: Follow the tutorial to bind your device with the IoT platform.
-3. **Data Upload**: Real-time sensor data can be uploaded via HTTP requests or MQTT.
-
-```cpp
-// Example code to upload data
-void sendDataToCloud(float voltage, float current, float power) {
-    String data = "{\"voltage\": " + String(voltage) + ", \"current\": " + String(current) + ", \"power\": " + String(power) + "}";
-    // Send data to IoT platform here
-}
-
-```
 
 ## 📝 Notes and Common Issues
 
@@ -128,6 +112,7 @@ void sendDataToCloud(float voltage, float current, float power) {
 ## 🚀 Future Outlook
 
 - **Multi-Sensor Integration**: Adding more sensors such as temperature and humidity sensors to provide a comprehensive environmental monitoring system.
-- **AI-powered Predictions**: Implementing machine learning to predict energy usage patterns based on historical data and adjusting power distribution automatically.
 - **Optimizing Solar Panel Efficiency**: Future integration with more efficient solar cells to improve energy collection and storage.
-- **Remote Management**: Expanding support for multiple devices connected to the cloud for easier control via a smartphone app.
+- **Remote Management**: Future versions of this project may explore the possibility of integrating a cloud platform to enable remote monitoring and control of the system via a smartphone app.
+
+---
